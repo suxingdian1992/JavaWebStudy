@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 该文件的名字叫做部署描述符，总是叫做web.xml总是放在项目目录下的WEB-INFO下 -->
+<web-app>
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>com.servelet.demo.HelloWorld</servlet-class>
+<!-- 此处用于传递servlet初始化参数 -->
+		<init-param>  
+	       <param-name>param1</param-name>  
+	       <param-value>avalible in servlet init()</param-value>  
+    	</init-param>
+		<load-on-startup>10</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>HelloForm</servlet-name>
+		<servlet-class>com.servelet.demo.HelloForm</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>City</servlet-name>
+		<servlet-class>com.httpservlet.demo.Top10Servlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>City</servlet-name>
+		<url-pattern>/top10</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/HelloWorld</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HelloForm</servlet-name>
+		<url-pattern>/sxd</url-pattern>
+	</servlet-mapping>
+
+	<!-- 设定项目默认启动打开的页面 -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>  
