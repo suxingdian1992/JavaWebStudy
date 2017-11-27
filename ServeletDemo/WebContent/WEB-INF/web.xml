@@ -20,6 +20,17 @@
 		<servlet-class>com.httpservlet.demo.Top10Servlet</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>CustomerServlet</servlet-name>
+		<servlet-class>com.httpservlet.demo.HiddenFiledServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>CustomerServlet</servlet-name>
+		<url-pattern>/customer</url-pattern>
+		<url-pattern>/editCustomer</url-pattern>
+		<url-pattern>/updateCustomer</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>City</servlet-name>
 		<url-pattern>/top10</url-pattern>
