@@ -24,10 +24,12 @@ public class CookieInfoServlet extends HttpServlet {
             HttpServletResponse response) throws ServletException,
             IOException {
 
+    	//从请求中取得之前的cookie数组，然后找到对应的cookie即可
         Cookie[] cookies = request.getCookies();
         StringBuilder styles = new StringBuilder();
         styles.append(".title {");
         if (cookies != null) {
+        	//遍历cookie
             for (Cookie cookie : cookies) {
                 String name = cookie.getName();
                 String value = cookie.getValue();

@@ -78,7 +78,7 @@ public class Top10Servlet extends HttpServlet{
 	 * @throws IOException
 	 */
 	private void showMainPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		//重写url动态修正链接参数
+		//重写url动态修正链接参数，在url后追加token参数，用？开始，&分割
 		resp.setContentType("text/html");
 		PrintWriter writer = resp.getWriter();
 		writer.print("<html><head>" + 
