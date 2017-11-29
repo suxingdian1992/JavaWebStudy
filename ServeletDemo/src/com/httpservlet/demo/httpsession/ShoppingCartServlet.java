@@ -63,6 +63,9 @@ public class ShoppingCartServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException,
             IOException {
+    	//注意URL和URI的区别：URL是一种具体的URI，它不仅唯一标识资源，而且还提供了定位该资源的信息。
+    	//URI是一种语义上的抽象概念，可以是绝对的，也可以是相对的，而URL则必须提供足够的信息来定位，
+    	//所以，是绝对的，而通常说的relative URL，则是针对另一个absolute URL，本质上还是绝对的。
         String uri = request.getRequestURI();
         if (uri.endsWith("/products")) {
         	//展示当前所有产品的清单

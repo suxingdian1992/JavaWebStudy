@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
  * 2017年11月22日
  * prjName:ServeletDemo pakName:com.servelet.demo
  * 标准servlet接口实现以及样例！
+ * 注意url和uri的区别
  * 2017年11月22日
  */
 /*此处标注用来声明这是一个servlet，使用什么url进入到这个servlet中*/
