@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<!-- header是jsp的隐藏式对象，其中的referer是跳转来源的链接 -->
 	Your referer header: ${header.referer}
 	<br />
 	<tags:doBodyDemo>

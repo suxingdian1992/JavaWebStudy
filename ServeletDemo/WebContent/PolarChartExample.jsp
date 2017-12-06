@@ -53,7 +53,7 @@
 				showSymbol : false,
 				data : data
 			} ],
-			animationDuration : 2000
+			animationDuration : 2000,
 		};
 		// 使用刚指定的配置项和数据显示图表。
 		myChart.setOption(option);
