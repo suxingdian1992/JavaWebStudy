@@ -1,0 +1,4 @@
+<%
+/* 注意，外部的tagfile片段如果要被tagfile引用，其后缀必须是tagf才可以哦 */
+    out.print("Hello from included.tagf");
+%>
