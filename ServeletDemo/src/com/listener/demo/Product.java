@@ -26,12 +26,14 @@ public class Product implements HttpSessionBindingListener {
         this.price = price;
     }
     
+    /*属性绑定*/
     @Override
     public void valueBound(HttpSessionBindingEvent event) {
         String attributeName = event.getName();
         System.out.println(attributeName + " valueBound");
     }
     
+    /*属性解绑*/
     @Override
     public void valueUnbound(HttpSessionBindingEvent event) {
         String attributeName = event.getName();
