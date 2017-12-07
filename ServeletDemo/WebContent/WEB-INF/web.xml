@@ -4,11 +4,11 @@
 	<servlet>
 		<servlet-name>HelloWorld</servlet-name>
 		<servlet-class>com.servelet.demo.HelloWorld</servlet-class>
-<!-- 此处用于传递servlet初始化参数 -->
-		<init-param>  
-	       <param-name>param1</param-name>  
-	       <param-value>avalible in servlet init()</param-value>  
-    	</init-param>
+		<!-- 此处用于传递servlet初始化参数 -->
+		<init-param>
+			<param-name>param1</param-name>
+			<param-value>avalible in servlet init()</param-value>
+		</init-param>
 		<load-on-startup>10</load-on-startup>
 	</servlet>
 	<servlet>
@@ -19,12 +19,12 @@
 		<servlet-name>City</servlet-name>
 		<servlet-class>com.httpservlet.demo.Top10Servlet</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>CustomerServlet</servlet-name>
 		<servlet-class>com.httpservlet.demo.HiddenFiledServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>CustomerServlet</servlet-name>
 		<url-pattern>/customer</url-pattern>
@@ -48,4 +48,9 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<!-- 设定session的失效时间 -->
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
 </web-app>  
