@@ -39,6 +39,7 @@ public class LoggingFilter implements Filter {
 		//从初始化参数中取得prefix，logFileName
 		prefix = filterConfig.getInitParameter("prefix");
 		String logFileName = filterConfig.getInitParameter("logFileName");
+		//获取当前应用的部署位置，该位置中可以找到日志文件
 		String appPath = filterConfig.getServletContext().getRealPath("/");
 		// without path info in logFileName, the log file will be
 		// created in $TOMCAT_HOME/bin
