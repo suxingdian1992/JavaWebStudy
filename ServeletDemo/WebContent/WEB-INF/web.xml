@@ -24,6 +24,17 @@
 		<servlet-name>CustomerServlet</servlet-name>
 		<servlet-class>com.httpservlet.demo.HiddenFiledServlet</servlet-class>
 	</servlet>
+	<servlet>
+        <servlet-name>AsyncComplete</servlet-name>
+        <servlet-class>com.async.demo.AsyncCompleteServlet</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>AsyncComplete</servlet-name>
+        <url-pattern>/asyncComplete</url-pattern>
+    </servlet-mapping>
+
 
 	<servlet-mapping>
 		<servlet-name>CustomerServlet</servlet-name>

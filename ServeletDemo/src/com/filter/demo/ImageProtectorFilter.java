@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * 拦截所有的图像的后缀，禁止图像下载
  * 2017年12月7日
  */
-@WebFilter(filterName = "ImageProtetorFilter", urlPatterns = { "*.png", "*.jpg", "*.gif" })
+@WebFilter(filterName = "ImageProtetorFilter", urlPatterns = { "*.png", "*.jpg", "*.gif" },asyncSupported = true)
 public class ImageProtectorFilter implements Filter {
 
 	@Override

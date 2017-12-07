@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 	initParams = {
 		@WebInitParam(name = "logFileName", value = "log.txt"),
 		@WebInitParam(name = "prefix", value = "URI: ") 
-		}
+		},asyncSupported = true
 )
 public class LoggingFilter implements Filter {
 
