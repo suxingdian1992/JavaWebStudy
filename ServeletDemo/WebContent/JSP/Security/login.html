@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+<h1>Login Form</h1>
+<!-- 指定后台调用web.xml中的表单验证方法，提交之后回合tomcat-user.xml文件中的用户名密码匹配 -->
+<form action='j_security_check' method='post'>
+<div>
+    User Name: <input name='j_username'/>
+</div>
+<div>
+    Password: <input type='password' name='j_password'/>
+</div>
+<div>
+    <input type='submit' value='Login'/>
+</div>
+</form>
+</body>
+</html>

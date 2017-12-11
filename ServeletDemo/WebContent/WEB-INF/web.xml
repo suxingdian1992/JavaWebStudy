@@ -25,19 +25,25 @@
 		<servlet-class>com.httpservlet.demo.HiddenFiledServlet</servlet-class>
 	</servlet>
 	<servlet>
-        <servlet-name>AsyncComplete</servlet-name>
-        <servlet-class>com.async.demo.AsyncCompleteServlet</servlet-class>
-        <async-supported>true</async-supported>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>AsyncComplete</servlet-name>
-        <url-pattern>/asyncComplete</url-pattern>
-    </servlet-mapping>
+		<servlet-name>AsyncComplete</servlet-name>
+		<servlet-class>com.async.demo.AsyncCompleteServlet</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AsyncComplete</servlet-name>
+		<url-pattern>/asyncComplete</url-pattern>
+	</servlet-mapping>
 
 
 	<servlet-mapping>
 		<servlet-name>CustomerServlet</servlet-name>
+		<!-- 注意：路径和扩展名匹配无法同时设置，比如下面的三个<url-pattern>都是非法的，如果设置，启动tomcat服务器会报错。 
+			<url-pattern>/kata/*.jsp</url-pattern> 
+			<url-pattern>/*.jsp</url-pattern> 
+			<url-pattern>he*.jsp</url-pattern> 
+		这三种都是错的哦！！！！
+		-->
 		<url-pattern>/customer</url-pattern>
 		<url-pattern>/editCustomer</url-pattern>
 		<url-pattern>/updateCustomer</url-pattern>
@@ -59,9 +65,57 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	
+
 	<!-- 设定session的失效时间 -->
 	<session-config>
 		<session-timeout>10</session-timeout>
 	</session-config>
+
+	<!-- restricts access to all JSP pages 安全事项：禁止直接访问jsp文件 -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>
+				JSP pages
+			</web-resource-name>
+			<!-- 注意url-pattern的匹配规则 -->
+			<url-pattern>/JSP/Security/security1.jsp</url-pattern>
+		</web-resource-collection>
+		must have auth-constraint, otherwise the
+		specified web resources will not be restricted
+		<auth-constraint />
+	</security-constraint>
+	<!-- 安全事项生效的url是/servlet -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Servlet1</web-resource-name>
+			<url-pattern>/servlet1</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<!-- 允许服务器配置文件中指定的一下两类用户访问 -->
+			<role-name>member</role-name>
+			<role-name>manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<!-- 基本访问验证，加密模式为比较容易破解的Base64，后续会采用摘要访问接入认证，调用md5算法加密  -->
+	<!-- <login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>Members Only</realm-name>
+	</login-config> -->
+
+	<!-- 摘要访问接入认证，调用md5算法加密 -->
+	<!-- <login-config>
+		<auth-method>DIGEST</auth-method>
+		弹出提示框的名字
+		<realm-name>Digest authentication</realm-name>
+	</login-config> -->
+
+	<!-- 基于表单的验证模式，允许使用单独的验证页面 -->
+	<login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/JSP/Security/login.html</form-login-page>
+            <form-error-page>/JSP/Security/error.html</form-error-page>
+        </form-login-config>
+    </login-config>
 </web-app>  
