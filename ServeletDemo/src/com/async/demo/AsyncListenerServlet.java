@@ -26,6 +26,7 @@ public class AsyncListenerServlet extends HttpServlet {
 				try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
+					
 				}
 				String greeting = "hi from listener";
 				System.out.println("wait....");
