@@ -11,7 +11,8 @@ public class MyAsyncListener implements AsyncListener {
     @Override
     public void onComplete(AsyncEvent asyncEvent) 
             throws IOException {
-        System.out.println("onComplete");
+    	
+        System.out.println("当完成的时候在控制台打印：onComplete");
     }
 
     @Override
