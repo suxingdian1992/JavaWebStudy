@@ -60,6 +60,8 @@ public class DownloadCounterFilter implements Filter {
 
 		// 从请求中取得uri
 		final String uri = httpServletRequest.getRequestURI();
+		String host = httpServletRequest.getHeader("Host");
+		System.out.println(host);
 		executorService.execute(new Runnable() {
 			@Override
 			public void run() {

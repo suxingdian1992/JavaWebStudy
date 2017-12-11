@@ -104,18 +104,18 @@
 	</login-config> -->
 
 	<!-- 摘要访问接入认证，调用md5算法加密 -->
-	<!-- <login-config>
+	<login-config>
 		<auth-method>DIGEST</auth-method>
 		弹出提示框的名字
 		<realm-name>Digest authentication</realm-name>
-	</login-config> -->
+	</login-config>
 
 	<!-- 基于表单的验证模式，允许使用单独的验证页面 -->
-	<login-config>
+	<!-- <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
             <form-login-page>/JSP/Security/login.html</form-login-page>
             <form-error-page>/JSP/Security/error.html</form-error-page>
         </form-login-config>
-    </login-config>
+    </login-config> -->
 </web-app>  
