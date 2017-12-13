@@ -60,8 +60,6 @@ public class DownloadCounterFilter implements Filter {
 
 		// 从请求中取得uri
 		final String uri = httpServletRequest.getRequestURI();
-		String host = httpServletRequest.getHeader("Host");
-		System.out.println(host);
 		executorService.execute(new Runnable() {
 			@Override
 			public void run() {
@@ -69,6 +67,7 @@ public class DownloadCounterFilter implements Filter {
 				if (property == null) {// 如果是空的则下载次数为1
 					downloadLog.setProperty(uri, "1");// 设定属性，属性名为uri，值为数字
 					System.out.println("DownloadCounter:"+uri+" Counts:1");
+					
 				} else {
 					int count = 0;
 					try {
