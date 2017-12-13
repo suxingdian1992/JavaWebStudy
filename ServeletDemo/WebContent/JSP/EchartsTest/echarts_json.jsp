@@ -46,13 +46,6 @@
 				    });
 				
 				});
-				
-				/* function eConsole(param) 
-                {
-                    console.dir(param);
-                }
-				
-				chartData.on("click",eConsole); */
 			});
 
 		</script>
