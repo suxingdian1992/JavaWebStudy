@@ -2,11 +2,15 @@ package com.servletcontainer.demo;
 
 import java.util.Set;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletContainerInitializer;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 import javax.servlet.annotation.HandlesTypes;
+
+import com.dynload.demo.FirstServlet;
+import com.servletcontainer.demo.UsefulServlet;
 
 /**
  * @author suxin
@@ -21,6 +25,16 @@ public class MyServletContainerInitializer implements ServletContainerInitialize
 
 	@Override
 	public void onStartup(Set<Class<?>> classes, ServletContext servletContext) throws ServletException {
+		Servlet usefulServlet = null;
+		try {
+			usefulServlet = servletContext.createServlet(FirstServlet.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (usefulServlet != null && usefulServlet instanceof UsefulServlet) {
+			((FirstServlet) usefulServlet).setName("ServletContainerOnStartUp");
+		}
+		
 		System.out.println("onStartup");
 		ServletRegistration registration = servletContext.addServlet("usefulServlet",
 				"com.servletcontainer.demo.UsefulServlet");// 注册当前的servlet类
